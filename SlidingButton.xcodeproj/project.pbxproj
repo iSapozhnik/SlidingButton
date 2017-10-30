@@ -1,0 +1,423 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FFCD44A71FA7ABFE00A4E423 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCD44A61FA7ABFE00A4E423 /* AppDelegate.swift */; };
+		FFCD44A91FA7ABFE00A4E423 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCD44A81FA7ABFE00A4E423 /* ViewController.swift */; };
+		FFCD44AC1FA7ABFE00A4E423 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFCD44AA1FA7ABFE00A4E423 /* Main.storyboard */; };
+		FFCD44AE1FA7ABFE00A4E423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFCD44AD1FA7ABFE00A4E423 /* Assets.xcassets */; };
+		FFCD44B11FA7ABFE00A4E423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFCD44AF1FA7ABFE00A4E423 /* LaunchScreen.storyboard */; };
+		FFCD44BC1FA7ABFE00A4E423 /* SlidingButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCD44BB1FA7ABFE00A4E423 /* SlidingButtonTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FFCD44B81FA7ABFE00A4E423 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFCD449B1FA7ABFE00A4E423 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FFCD44A21FA7ABFE00A4E423;
+			remoteInfo = SlidingButton;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FFCD44A31FA7ABFE00A4E423 /* SlidingButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlidingButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFCD44A61FA7ABFE00A4E423 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FFCD44A81FA7ABFE00A4E423 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FFCD44AB1FA7ABFE00A4E423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FFCD44AD1FA7ABFE00A4E423 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FFCD44B01FA7ABFE00A4E423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FFCD44B21FA7ABFE00A4E423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFCD44B71FA7ABFE00A4E423 /* SlidingButtonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlidingButtonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFCD44BB1FA7ABFE00A4E423 /* SlidingButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingButtonTests.swift; sourceTree = "<group>"; };
+		FFCD44BD1FA7ABFE00A4E423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FFCD44A01FA7ABFE00A4E423 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFCD44B41FA7ABFE00A4E423 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FFCD449A1FA7ABFE00A4E423 = {
+			isa = PBXGroup;
+			children = (
+				FFCD44A51FA7ABFE00A4E423 /* SlidingButton */,
+				FFCD44BA1FA7ABFE00A4E423 /* SlidingButtonTests */,
+				FFCD44A41FA7ABFE00A4E423 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FFCD44A41FA7ABFE00A4E423 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FFCD44A31FA7ABFE00A4E423 /* SlidingButton.app */,
+				FFCD44B71FA7ABFE00A4E423 /* SlidingButtonTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FFCD44A51FA7ABFE00A4E423 /* SlidingButton */ = {
+			isa = PBXGroup;
+			children = (
+				FFCD44A61FA7ABFE00A4E423 /* AppDelegate.swift */,
+				FFCD44A81FA7ABFE00A4E423 /* ViewController.swift */,
+				FFCD44AA1FA7ABFE00A4E423 /* Main.storyboard */,
+				FFCD44AD1FA7ABFE00A4E423 /* Assets.xcassets */,
+				FFCD44AF1FA7ABFE00A4E423 /* LaunchScreen.storyboard */,
+				FFCD44B21FA7ABFE00A4E423 /* Info.plist */,
+			);
+			path = SlidingButton;
+			sourceTree = "<group>";
+		};
+		FFCD44BA1FA7ABFE00A4E423 /* SlidingButtonTests */ = {
+			isa = PBXGroup;
+			children = (
+				FFCD44BB1FA7ABFE00A4E423 /* SlidingButtonTests.swift */,
+				FFCD44BD1FA7ABFE00A4E423 /* Info.plist */,
+			);
+			path = SlidingButtonTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FFCD44A21FA7ABFE00A4E423 /* SlidingButton */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFCD44C01FA7ABFE00A4E423 /* Build configuration list for PBXNativeTarget "SlidingButton" */;
+			buildPhases = (
+				FFCD449F1FA7ABFE00A4E423 /* Sources */,
+				FFCD44A01FA7ABFE00A4E423 /* Frameworks */,
+				FFCD44A11FA7ABFE00A4E423 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SlidingButton;
+			productName = SlidingButton;
+			productReference = FFCD44A31FA7ABFE00A4E423 /* SlidingButton.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FFCD44B61FA7ABFE00A4E423 /* SlidingButtonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFCD44C31FA7ABFE00A4E423 /* Build configuration list for PBXNativeTarget "SlidingButtonTests" */;
+			buildPhases = (
+				FFCD44B31FA7ABFE00A4E423 /* Sources */,
+				FFCD44B41FA7ABFE00A4E423 /* Frameworks */,
+				FFCD44B51FA7ABFE00A4E423 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FFCD44B91FA7ABFE00A4E423 /* PBXTargetDependency */,
+			);
+			name = SlidingButtonTests;
+			productName = SlidingButtonTests;
+			productReference = FFCD44B71FA7ABFE00A4E423 /* SlidingButtonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FFCD449B1FA7ABFE00A4E423 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Ivan Sapozhnik";
+				TargetAttributes = {
+					FFCD44A21FA7ABFE00A4E423 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+					FFCD44B61FA7ABFE00A4E423 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FFCD44A21FA7ABFE00A4E423;
+					};
+				};
+			};
+			buildConfigurationList = FFCD449E1FA7ABFE00A4E423 /* Build configuration list for PBXProject "SlidingButton" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FFCD449A1FA7ABFE00A4E423;
+			productRefGroup = FFCD44A41FA7ABFE00A4E423 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FFCD44A21FA7ABFE00A4E423 /* SlidingButton */,
+				FFCD44B61FA7ABFE00A4E423 /* SlidingButtonTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FFCD44A11FA7ABFE00A4E423 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFCD44B11FA7ABFE00A4E423 /* LaunchScreen.storyboard in Resources */,
+				FFCD44AE1FA7ABFE00A4E423 /* Assets.xcassets in Resources */,
+				FFCD44AC1FA7ABFE00A4E423 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFCD44B51FA7ABFE00A4E423 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FFCD449F1FA7ABFE00A4E423 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFCD44A91FA7ABFE00A4E423 /* ViewController.swift in Sources */,
+				FFCD44A71FA7ABFE00A4E423 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFCD44B31FA7ABFE00A4E423 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFCD44BC1FA7ABFE00A4E423 /* SlidingButtonTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FFCD44B91FA7ABFE00A4E423 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FFCD44A21FA7ABFE00A4E423 /* SlidingButton */;
+			targetProxy = FFCD44B81FA7ABFE00A4E423 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FFCD44AA1FA7ABFE00A4E423 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFCD44AB1FA7ABFE00A4E423 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FFCD44AF1FA7ABFE00A4E423 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFCD44B01FA7ABFE00A4E423 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FFCD44BE1FA7ABFE00A4E423 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FFCD44BF1FA7ABFE00A4E423 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FFCD44C11FA7ABFE00A4E423 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SlidingButton/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hevylightapps.SlidingButton;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		FFCD44C21FA7ABFE00A4E423 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SlidingButton/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hevylightapps.SlidingButton;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		FFCD44C41FA7ABFE00A4E423 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SlidingButtonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hevylightapps.SlidingButtonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlidingButton.app/SlidingButton";
+			};
+			name = Debug;
+		};
+		FFCD44C51FA7ABFE00A4E423 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SlidingButtonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hevylightapps.SlidingButtonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlidingButton.app/SlidingButton";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FFCD449E1FA7ABFE00A4E423 /* Build configuration list for PBXProject "SlidingButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFCD44BE1FA7ABFE00A4E423 /* Debug */,
+				FFCD44BF1FA7ABFE00A4E423 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FFCD44C01FA7ABFE00A4E423 /* Build configuration list for PBXNativeTarget "SlidingButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFCD44C11FA7ABFE00A4E423 /* Debug */,
+				FFCD44C21FA7ABFE00A4E423 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FFCD44C31FA7ABFE00A4E423 /* Build configuration list for PBXNativeTarget "SlidingButtonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFCD44C41FA7ABFE00A4E423 /* Debug */,
+				FFCD44C51FA7ABFE00A4E423 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FFCD449B1FA7ABFE00A4E423 /* Project object */;
+}
