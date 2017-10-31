@@ -14,7 +14,9 @@ class TextView: UIView {
         didSet {
             guard let titleString = title else {
                 titleLabel.text = nil
-                stackView.removeArrangedSubview(titleLabel)
+                if stackView.arrangedSubviews.contains(titleLabel) {
+                    stackView.removeArrangedSubview(titleLabel)
+                }
                 return
             }
             titleLabel.text = titleString
@@ -26,7 +28,9 @@ class TextView: UIView {
         didSet {
             guard let subtitleString = subtitle else {
                 subtitleLabel.text = nil
-                stackView.removeArrangedSubview(subtitleLabel)
+                if stackView.arrangedSubviews.contains(subtitleLabel) {
+                    stackView.removeArrangedSubview(subtitleLabel)
+                }
                 return
             }
             subtitleLabel.text = subtitleString
@@ -37,24 +41,13 @@ class TextView: UIView {
     private var titleLabel: UILabel!
     private var subtitleLabel: UILabel!
     private var stackView: UIStackView!
+    private var animation: SlidingAnimation!
     
     init() {
         super.init(frame: .zero)
         
-        titleLabel = UILabel()
-        titleLabel.textAlignment = .center
-        titleLabel.textColor = .white
-        
-        subtitleLabel = UILabel()
-        subtitleLabel.font = UIFont.systemFont(ofSize: 12)
-        subtitleLabel.textAlignment = .center
-        subtitleLabel.textColor = .white
-
-        stackView = UIStackView()
-        stackView.alignment = .center
-        stackView.distribution = .fillEqually
-        stackView.axis = .vertical
-        addSubview(stackView)
+        setupLabels()
+        setupStackView()
         
         setupConstraints()
     }
@@ -63,13 +56,37 @@ class TextView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        self.animation = SlidingAnimation(with: self)
+        self.animation.startAnimation()
+    }
+    
+    private func setupLabels() {
+        titleLabel = UILabel()
+        titleLabel.textAlignment = .center
+        titleLabel.textColor = .white
+        
+        subtitleLabel = UILabel()
+        subtitleLabel.font = UIFont.systemFont(ofSize: 12)
+        subtitleLabel.textAlignment = .center
+        subtitleLabel.textColor = .white
+    }
+    
+    private func setupStackView() {
+        stackView = UIStackView()
+        stackView.alignment = .center
+        stackView.distribution = .fillEqually
+        stackView.axis = .vertical
+        addSubview(stackView)
+    }
+    
     private func setupConstraints() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0).isActive = true
-//        stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-//        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
 }

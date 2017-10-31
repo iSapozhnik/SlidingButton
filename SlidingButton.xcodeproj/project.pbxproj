@@ -20,6 +20,7 @@
 		FFCD44D01FA8EE5500A4E423 /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCD44CF1FA8EE5500A4E423 /* ArrowView.swift */; };
 		FFCD44D21FA8FC9800A4E423 /* CheckmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCD44D11FA8FC9800A4E423 /* CheckmarkView.swift */; };
 		FFCD44D41FA8FCCE00A4E423 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCD44D31FA8FCCE00A4E423 /* IconView.swift */; };
+		FFCD44D61FA90CEC00A4E423 /* SlidingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCD44D51FA90CEC00A4E423 /* SlidingAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		FFCD44CF1FA8EE5500A4E423 /* ArrowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
 		FFCD44D11FA8FC9800A4E423 /* CheckmarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckmarkView.swift; sourceTree = "<group>"; };
 		FFCD44D31FA8FCCE00A4E423 /* IconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
+		FFCD44D51FA90CEC00A4E423 /* SlidingAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				FFCD44D31FA8FCCE00A4E423 /* IconView.swift */,
 				FFCD44CF1FA8EE5500A4E423 /* ArrowView.swift */,
 				FFCD44D11FA8FC9800A4E423 /* CheckmarkView.swift */,
+				FFCD44D51FA90CEC00A4E423 /* SlidingAnimation.swift */,
 			);
 			path = SlidingButton;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				FFCD44D41FA8FCCE00A4E423 /* IconView.swift in Sources */,
 				FFCD44CE1FA876B600A4E423 /* TextView.swift in Sources */,
 				FFCD44A71FA7ABFE00A4E423 /* AppDelegate.swift in Sources */,
+				FFCD44D61FA90CEC00A4E423 /* SlidingAnimation.swift in Sources */,
 				FFCD44D01FA8EE5500A4E423 /* ArrowView.swift in Sources */,
 				FFCD44CC1FA7ACC400A4E423 /* Slider.swift in Sources */,
 			);
