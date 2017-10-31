@@ -40,7 +40,13 @@ class SlidingAnimation: NSObject, CAAnimationDelegate {
     private var currentAnimation: CABasicAnimation!
     
     init(with view: UIView) {
+        super.init()
         self.animatedView = view
+        NotificationCenter.default.addObserver(self, selector: #selector(startAnimation), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
     }
     
     func startAnimation() {

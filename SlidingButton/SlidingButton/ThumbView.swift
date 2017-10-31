@@ -15,6 +15,12 @@ class ThumbView: UIView {
     var arrowView: ArrowView!
     var checkmarkView: CheckmarkView!
     
+    var cornerRadius: CGFloat = 5.0 {
+        didSet {
+            layer.cornerRadius = cornerRadius
+        }
+    }
+    
     init() {
         super.init(frame: .zero)
         setupViews()
@@ -51,6 +57,8 @@ class ThumbView: UIView {
     }
     
     private func setupViews() {
+        layer.cornerRadius = cornerRadius
+        
         setupArrowView()
         setupCheckmarkView()
         setupActivityIndicator()
