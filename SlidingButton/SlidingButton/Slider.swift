@@ -49,6 +49,18 @@ class Slider: UIView {
         }
     }
     
+    var titleFont: UIFont = UIFont(name: "Helvetica", size: 17)! {
+        didSet {
+            textView.titleFont = titleFont
+        }
+    }
+    
+    var subtitleFont: UIFont = UIFont(name: "Helvetica", size: 17)! {
+        didSet {
+            textView.subtitleFont = subtitleFont
+        }
+    }
+
     var state: SliderState! {
         return thumbView.state
     }
