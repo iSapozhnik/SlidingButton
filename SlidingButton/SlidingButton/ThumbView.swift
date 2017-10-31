@@ -15,9 +15,17 @@ class ThumbView: UIView {
     var arrowView: ArrowView!
     var checkmarkView: CheckmarkView!
     
-    var cornerRadius: CGFloat = 5.0 {
+    var cornerRadius: CGFloat = 2.0 {
         didSet {
             layer.cornerRadius = cornerRadius
+        }
+    }
+    
+    var iconColor: UIColor = UIColor(red: 0, green: 126/255, blue: 163/255, alpha: 1) {
+        didSet {
+            arrowView.lineColor = iconColor
+            checkmarkView.lineColor = iconColor
+            activity.color = iconColor
         }
     }
     
@@ -66,18 +74,21 @@ class ThumbView: UIView {
     
     private func setupActivityIndicator() {
         activity = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        activity.color = iconColor
         addSubview(activity)
         activity.hidesWhenStopped = true
     }
     
     private func setupArrowView() {
         arrowView = ArrowView()
+        arrowView.lineColor = iconColor
         arrowView.backgroundColor = .clear
         addSubview(arrowView)
     }
     
     private func setupCheckmarkView() {
         checkmarkView = CheckmarkView()
+        checkmarkView.lineColor = iconColor
         checkmarkView.alpha = 0.0
         checkmarkView.backgroundColor = .clear
         addSubview(checkmarkView)

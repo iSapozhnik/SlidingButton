@@ -22,14 +22,14 @@ class Slider: UIView {
         }
     }
     
-    var minimumThumbPadding: CGFloat = 10.0 { // the distance between thumb view and Slider bounds
+    var minimumThumbPadding: CGFloat = 4.0 { // the distance between thumb view and Slider bounds
         didSet {
             trackViewTrailingConstraint?.constant = minimumThumbPadding
             trackViewLeadingConstraint?.constant = minimumThumbPadding
             layoutIfNeeded()
         }
     }
-    var thumbSize = CGSize(width: 60, height: 40) {
+    var thumbSize = CGSize(width: 66, height: 44) {
         didSet {
             trackViewHeightConstraint?.constant = thumbSize.height
             trackView.thumbSize = thumbSize
@@ -51,6 +51,18 @@ class Slider: UIView {
     
     var state: SliderState! {
         return thumbView.state
+    }
+    
+    var thumbColor: UIColor = UIColor.white {
+        didSet {
+            thumbView.backgroundColor = thumbColor
+        }
+    }
+    
+    var color: UIColor = UIColor(red: 0, green: 126/255, blue: 163/255, alpha: 1) {
+        didSet {
+            backgroundColor = color
+        }
     }
     
     private var trackViewHeightConstraint: NSLayoutConstraint?
@@ -85,16 +97,13 @@ class Slider: UIView {
             self?.textView.alpha = pow(1 - progress, 3)
         }
         
-        backgroundColor = UIColor.gray
+        thumbView.backgroundColor = thumbColor
+        backgroundColor = color
         
         addSubview(textView)
-        textView.title = "Atatata"
-        textView.subtitle = "HeheheheHehehehe"
         
         trackView.backgroundColor = UIColor.clear
         addSubview(trackView)
-        
-        thumbView.backgroundColor = UIColor.green
         
         setupConstraints()
     }
