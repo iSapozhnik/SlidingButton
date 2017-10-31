@@ -38,14 +38,26 @@ class TextView: UIView {
         }
     }
     
-    var titleFont: UIFont = UIFont(name: "Helvetica", size: 17)! {
+    var titleFont: UIFont! {
         didSet {
             titleLabel.font = titleFont
         }
     }
-    var subtitleFont: UIFont = UIFont(name: "Helvetica", size: 12)! {
+    var subtitleFont: UIFont! {
         didSet {
             subtitleLabel.font = subtitleFont
+        }
+    }
+    
+    var titleColor: UIColor = UIColor.white {
+        didSet {
+            titleLabel.textColor = titleColor
+        }
+    }
+    
+    var subtitleColor: UIColor = UIColor.white {
+        didSet {
+            subtitleLabel.textColor = subtitleColor
         }
     }
     
@@ -78,12 +90,12 @@ class TextView: UIView {
         titleLabel = UILabel()
         titleLabel.font = titleFont
         titleLabel.textAlignment = .center
-        titleLabel.textColor = .white
+        titleLabel.textColor = titleColor
         
         subtitleLabel = UILabel()
         subtitleLabel.font = subtitleFont
         subtitleLabel.textAlignment = .center
-        subtitleLabel.textColor = .white
+        subtitleLabel.textColor = subtitleColor
     }
     
     private func setupStackView() {

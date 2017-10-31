@@ -55,7 +55,7 @@ class Slider: UIView {
         }
     }
     
-    var subtitleFont: UIFont = UIFont(name: "Helvetica", size: 17)! {
+    var subtitleFont: UIFont = UIFont(name: "Helvetica", size: 12)! {
         didSet {
             textView.subtitleFont = subtitleFont
         }
@@ -63,6 +63,18 @@ class Slider: UIView {
 
     var state: SliderState! {
         return thumbView.state
+    }
+    
+    var titleColor: UIColor = UIColor.white {
+        didSet {
+            textView.titleColor = titleColor
+        }
+    }
+    
+    var subtitleColor: UIColor = UIColor.white {
+        didSet {
+            textView.subtitleColor = subtitleColor
+        }
     }
     
     var thumbColor: UIColor = UIColor.white {
@@ -112,6 +124,11 @@ class Slider: UIView {
         thumbView.backgroundColor = thumbColor
         backgroundColor = color
         
+        textView.titleFont = titleFont
+        textView.subtitleFont = subtitleFont
+        textView.titleColor = titleColor
+        textView.subtitleColor = subtitleColor
+
         addSubview(textView)
         
         trackView.backgroundColor = UIColor.clear
