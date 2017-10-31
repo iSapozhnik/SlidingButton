@@ -16,6 +16,20 @@ enum SliderState {
 
 class Slider: UIView {
     
+    ////////////////////////////////////////////////////////////////////////////////
+    // General settings ////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////
+    
+    var state: SliderState! {
+        return thumbView.state
+    }
+    
+    var color: UIColor = UIColor(red: 0, green: 126/255, blue: 163/255, alpha: 1) {
+        didSet {
+            backgroundColor = color
+        }
+    }
+    
     var completionAction: (() -> Void)? {
         didSet {
             trackView.completionAction = completionAction
@@ -29,51 +43,16 @@ class Slider: UIView {
             layoutIfNeeded()
         }
     }
+    
+    ////////////////////////////////////////////////////////////////////////////////
+    // Thubm view settings /////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////
+    
     var thumbSize = CGSize(width: 66, height: 44) {
         didSet {
             trackViewHeightConstraint?.constant = thumbSize.height
             trackView.thumbSize = thumbSize
             layoutIfNeeded()
-        }
-    }
-    
-    var title: String? {
-        didSet {
-            textView.title = title
-        }
-    }
-    
-    var subtitle: String? {
-        didSet {
-            textView.subtitle = subtitle
-        }
-    }
-    
-    var titleFont: UIFont = UIFont(name: "Helvetica", size: 17)! {
-        didSet {
-            textView.titleFont = titleFont
-        }
-    }
-    
-    var subtitleFont: UIFont = UIFont(name: "Helvetica", size: 12)! {
-        didSet {
-            textView.subtitleFont = subtitleFont
-        }
-    }
-
-    var state: SliderState! {
-        return thumbView.state
-    }
-    
-    var titleColor: UIColor = UIColor.white {
-        didSet {
-            textView.titleColor = titleColor
-        }
-    }
-    
-    var subtitleColor: UIColor = UIColor.white {
-        didSet {
-            textView.subtitleColor = subtitleColor
         }
     }
     
@@ -83,19 +62,54 @@ class Slider: UIView {
         }
     }
     
-    var color: UIColor = UIColor(red: 0, green: 126/255, blue: 163/255, alpha: 1) {
+    ////////////////////////////////////////////////////////////////////////////////
+    // Title and subtitle //////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////
+    
+    var title: String? {
         didSet {
-            backgroundColor = color
+            textView.title = title
         }
     }
+    
+    var titleFont: UIFont = UIFont(name: "Helvetica", size: 17)! {
+        didSet {
+            textView.titleFont = titleFont
+        }
+    }
+    
+    var titleColor: UIColor = UIColor.white {
+        didSet {
+            textView.titleColor = titleColor
+        }
+    }
+    
+    var subtitle: String? {
+        didSet {
+            textView.subtitle = subtitle
+        }
+    }
+    
+    var subtitleFont: UIFont = UIFont(name: "Helvetica", size: 12)! {
+        didSet {
+            textView.subtitleFont = subtitleFont
+        }
+    }
+    
+    var subtitleColor: UIColor = UIColor.white {
+        didSet {
+            textView.subtitleColor = subtitleColor
+        }
+    }
+    ////////////////////////////////////////////////////////////////////////////////
     
     private var trackViewHeightConstraint: NSLayoutConstraint?
     private var trackViewTrailingConstraint: NSLayoutConstraint?
     private var trackViewLeadingConstraint: NSLayoutConstraint?
     
-    let thumbView = ThumbView()
-    let textView = TextView()
-    let trackView: TrackView!
+    private let thumbView = ThumbView()
+    private let textView = TextView()
+    private let trackView: TrackView!
     
     override init(frame: CGRect) {
         trackView = TrackView(with: thumbView, thumbSize: thumbSize)
