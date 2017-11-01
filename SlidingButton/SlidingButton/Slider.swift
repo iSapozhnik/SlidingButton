@@ -14,11 +14,17 @@ enum SliderState {
     case success
 }
 
+protocol SliderDatasource: class {
+    func view(for state: SliderState) -> IconView
+}
+
 class Slider: UIView {
     
     ////////////////////////////////////////////////////////////////////////////////
     // General settings ////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////
+    
+    weak var datasource: SliderDatasource?
     
     var state: SliderState! {
         return thumbView.state

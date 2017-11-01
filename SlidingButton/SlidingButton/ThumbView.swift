@@ -8,6 +8,21 @@
 
 import UIKit
 
+//protocol ThumbBehaviour {
+//    var color: UIColor { get set }
+//}
+//
+//extension UIView: Thu mbBehaviour {
+//    var color: UIColor {
+//        get {
+//            return UIColor.red
+//        }
+//        set {
+//
+//        }
+//    }
+//}
+
 class ThumbView: UIView {
     private(set) var state: SliderState = .default
     
