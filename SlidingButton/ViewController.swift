@@ -17,6 +17,7 @@ class ViewController: UIViewController {
 
         slider.title = "UNLOCK"
         slider.subtitle = "Slide to unlock"
+        slider.animatedText = true
         slider.completionAction = { [weak self] in
             self?.slider.switchState(.loading)
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {

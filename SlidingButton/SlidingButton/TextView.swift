@@ -61,6 +61,12 @@ class TextView: UIView {
         }
     }
     
+    var animatedText: Bool! {
+        didSet {
+            updateAnimation()
+        }
+    }
+    
     private var titleLabel: UILabel!
     private var subtitleLabel: UILabel!
     private var stackView: UIStackView!
@@ -81,9 +87,6 @@ class TextView: UIView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        self.animation = SlidingAnimation(with: self)
-        self.animation.startAnimation()
     }
     
     private func setupLabels() {
@@ -104,6 +107,18 @@ class TextView: UIView {
         stackView.distribution = .fillEqually
         stackView.axis = .vertical
         addSubview(stackView)
+    }
+    
+    private func updateAnimation() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
+            if self.animatedText {
+                self.animation = SlidingAnimation(with: self)
+                self.animation.startAnimation()
+            } else {
+                self.animation.stopAnimation()
+                self.animation = nil
+            }
+        }
     }
     
     private func setupConstraints() {

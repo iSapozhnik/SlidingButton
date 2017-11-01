@@ -42,14 +42,18 @@ class SlidingAnimation: NSObject, CAAnimationDelegate {
     init(with view: UIView) {
         super.init()
         self.animatedView = view
-        NotificationCenter.default.addObserver(self, selector: #selector(startAnimation), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(registerDidBecomeActiveNotification), name: Notification.Name.UIApplicationWillResignActive, object: nil)
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIApplicationWillResignActive, object: nil)
     }
     
-    func startAnimation() {
+    func startAnimation(_ sender: Any? = nil) {
+        guard animatedView.bounds.size != .zero else {
+            return
+        }
         stopAnimation()
         
         let gradientMask = CAGradientLayer()
@@ -93,5 +97,9 @@ class SlidingAnimation: NSObject, CAAnimationDelegate {
         }
         
         stopAnimation()
+    }
+    
+    @objc private func registerDidBecomeActiveNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(startAnimation), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
     }
 }
