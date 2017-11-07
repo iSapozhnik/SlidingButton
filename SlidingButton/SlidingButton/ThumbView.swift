@@ -23,6 +23,10 @@ import UIKit
 //    }
 //}
 
+class ThumbViewContainer: UIView {
+    
+}
+
 class ThumbView: UIView {
     private(set) var state: SliderState = .default
     
@@ -126,6 +130,5 @@ class ThumbView: UIView {
         checkmarkView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         checkmarkView.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
         checkmarkView.widthAnchor.constraint(equalToConstant: 20.0).isActive = true
-
     }
 }

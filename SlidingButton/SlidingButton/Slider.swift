@@ -121,10 +121,11 @@ class Slider: UIView {
     
     private let thumbView = ThumbView()
     private let textView = TextView()
+    private let thumbViewContainer = ThumbViewContainer()
     private let trackView: TrackView!
     
     override init(frame: CGRect) {
-        trackView = TrackView(with: thumbView, thumbSize: thumbSize)
+        trackView = TrackView(with: thumbViewContainer, thumbSize: thumbSize)
         
         super.init(frame: frame)
         setup()

@@ -16,11 +16,11 @@ class TrackView: UIView {
         return currentProgress
     }
     
-    var thumbView: ThumbView!
+    var thumbViewComtainer: ThumbViewContainer!
     var thumbSize: CGSize! {
         didSet {
             widthThumbViewConstraint?.constant = thumbSize.width
-            thumbView.layoutIfNeeded()
+            thumbViewComtainer.layoutIfNeeded()
         }
     }
     var panGesture: UIPanGestureRecognizer!
@@ -33,13 +33,13 @@ class TrackView: UIView {
     private var currentProgress: CGFloat = 0
     private var isComplete: Bool = false
     
-    init(with thumb: ThumbView, thumbSize: CGSize) {
+    init(with thumbViewContainer: ThumbViewContainer, thumbSize: CGSize) {
         
         super.init(frame: .zero)
         
-        self.thumbView = thumb
+        self.thumbViewComtainer = thumbViewContainer
         self.thumbSize = thumbSize
-        addSubview(thumb)
+        addSubview(thumbViewContainer)
         
         self.panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         self.thumbView.addGestureRecognizer(self.panGesture)
@@ -96,19 +96,17 @@ class TrackView: UIView {
         if currentProgress >= 1.0 {
             currentProgress = 1.0
         }
-        
-        print("\(currentProgress)")
 
         onChangeProgress?(currentProgress)
     }
     
     private func setupConstraints() {
-        thumbView.translatesAutoresizingMaskIntoConstraints = false
+        thumbViewContainer.translatesAutoresizingMaskIntoConstraints = false
         
         leadingThumbViewConstraint = thumbView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
         leadingThumbViewConstraint?.isActive = true
-        thumbView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        thumbView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        thumbViewContainer.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        thumbViewContainer.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         widthThumbViewConstraint = thumbView.widthAnchor.constraint(equalToConstant: thumbSize.width)
         widthThumbViewConstraint?.isActive = true
     }
