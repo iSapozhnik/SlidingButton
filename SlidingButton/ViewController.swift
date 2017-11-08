@@ -18,12 +18,31 @@ class ViewController: UIViewController {
         slider.title = "UNLOCK"
         slider.subtitle = "Slide to unlock"
         slider.animatedText = true
+        slider.datasource = self
         slider.completionAction = { [weak self] in
             self?.slider.switchState(.loading)
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self?.slider.switchState(.success)
+                self?.slider.reset()
             }
         }
     }
 }
 
+extension ViewController: SliderDatasource {
+    func view(for state: SliderState) -> UIView? {
+        
+        switch state {
+        case .default:
+            let arrow = ImageWrapperView.view(with: "arrow")
+            arrow.backgroundColor = .white
+            return arrow
+        case .loading:
+            let view = UIActivityIndicatorView(activityIndicatorStyle: .white)
+            view.startAnimating()
+            view.color = .red
+            return view
+        default:
+            return nil
+        }
+    }
+}

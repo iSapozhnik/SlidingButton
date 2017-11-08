@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF21C2131FB21A700076B72C /* ImageWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF21C2121FB21A700076B72C /* ImageWrapperView.swift */; };
+		FF633BC91FB311E10058E2E3 /* CollisionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF633BC81FB311E10058E2E3 /* CollisionAnimator.swift */; };
 		FFCD44A71FA7ABFE00A4E423 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCD44A61FA7ABFE00A4E423 /* AppDelegate.swift */; };
 		FFCD44A91FA7ABFE00A4E423 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCD44A81FA7ABFE00A4E423 /* ViewController.swift */; };
 		FFCD44AC1FA7ABFE00A4E423 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFCD44AA1FA7ABFE00A4E423 /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF21C2121FB21A700076B72C /* ImageWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWrapperView.swift; sourceTree = "<group>"; };
+		FF633BC81FB311E10058E2E3 /* CollisionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionAnimator.swift; sourceTree = "<group>"; };
 		FFCD44A31FA7ABFE00A4E423 /* SlidingButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlidingButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFCD44A61FA7ABFE00A4E423 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFCD44A81FA7ABFE00A4E423 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -123,7 +127,9 @@
 				FFCD44D31FA8FCCE00A4E423 /* IconView.swift */,
 				FFCD44CF1FA8EE5500A4E423 /* ArrowView.swift */,
 				FFCD44D11FA8FC9800A4E423 /* CheckmarkView.swift */,
+				FF21C2121FB21A700076B72C /* ImageWrapperView.swift */,
 				FFCD44D51FA90CEC00A4E423 /* SlidingAnimation.swift */,
+				FF633BC81FB311E10058E2E3 /* CollisionAnimator.swift */,
 			);
 			path = SlidingButton;
 			sourceTree = "<group>";
@@ -232,9 +238,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFCD44A91FA7ABFE00A4E423 /* ViewController.swift in Sources */,
+				FF21C2131FB21A700076B72C /* ImageWrapperView.swift in Sources */,
 				FFCD44CA1FA7ACB900A4E423 /* ThumbView.swift in Sources */,
 				FFCD44D21FA8FC9800A4E423 /* CheckmarkView.swift in Sources */,
 				FFCD44C81FA7AC5200A4E423 /* TrackView.swift in Sources */,
+				FF633BC91FB311E10058E2E3 /* CollisionAnimator.swift in Sources */,
 				FFCD44D41FA8FCCE00A4E423 /* IconView.swift in Sources */,
 				FFCD44CE1FA876B600A4E423 /* TextView.swift in Sources */,
 				FFCD44A71FA7ABFE00A4E423 /* AppDelegate.swift in Sources */,
@@ -448,6 +456,7 @@
 				FFCD44C21FA7ABFE00A4E423 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FFCD44C31FA7ABFE00A4E423 /* Build configuration list for PBXNativeTarget "SlidingButtonTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +465,7 @@
 				FFCD44C51FA7ABFE00A4E423 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

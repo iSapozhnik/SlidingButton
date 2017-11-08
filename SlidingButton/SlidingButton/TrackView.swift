@@ -16,33 +16,36 @@ class TrackView: UIView {
         return currentProgress
     }
     
-    var thumbViewComtainer: ThumbViewContainer!
+    var thumbViewContainer: ThumbViewContainer!
     var thumbSize: CGSize! {
         didSet {
             widthThumbViewConstraint?.constant = thumbSize.width
-            thumbViewComtainer.layoutIfNeeded()
+            thumbViewContainer.layoutIfNeeded()
         }
     }
-    var panGesture: UIPanGestureRecognizer!
+    
+    var completeTolerance: CGFloat = 0.9
+    
+    private var panGesture: UIPanGestureRecognizer!
     
     private var leadingThumbViewConstraint: NSLayoutConstraint?
     private var widthThumbViewConstraint: NSLayoutConstraint?
     private var heightThumbViewConstraint: NSLayoutConstraint?
 
-    private var xMaxLeading: CGFloat = 0
+    private var maxLeading: CGFloat = 0
     private var currentProgress: CGFloat = 0
-    private var isComplete: Bool = false
+    private(set) var isComplete: Bool = false
     
     init(with thumbViewContainer: ThumbViewContainer, thumbSize: CGSize) {
         
         super.init(frame: .zero)
         
-        self.thumbViewComtainer = thumbViewContainer
+        self.thumbViewContainer = thumbViewContainer
         self.thumbSize = thumbSize
         addSubview(thumbViewContainer)
         
-        self.panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
-        self.thumbView.addGestureRecognizer(self.panGesture)
+        self.panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
+        self.thumbViewContainer.addGestureRecognizer(self.panGesture)
         
         setupConstraints()
         onChangeProgress?(currentProgress)
@@ -54,10 +57,20 @@ class TrackView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        xMaxLeading = bounds.maxX - thumbView.bounds.width
+        maxLeading = bounds.maxX - thumbViewContainer.bounds.width
     }
     
-    func handlePan(_ recognizer: UIPanGestureRecognizer) {
+    func setProgress(_ progress: CGFloat, animated: Bool, completion: ((Bool) -> Void)? = nil) {
+        currentProgress = progress
+        updateThumbViewLeading(currentProgress * maxLeading, animated: animated, completion: completion)
+    }
+    
+    func reset(animated: Bool = true) {
+        isComplete = false
+        resetThumbViewPosition(animated: true)
+    }
+    
+    func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
         guard let _ = recognizer.view, !isComplete else {
             return
         }
@@ -65,25 +78,26 @@ class TrackView: UIView {
         let translatedPoint = recognizer.translation(in: self).x
         switch recognizer.state {
         case .changed:
-            if translatedPoint >= xMaxLeading {
-                updateThumbViewLeading(xMaxLeading)
+            if translatedPoint >= maxLeading {
+                updateThumbViewLeading(maxLeading)
             } else if translatedPoint <= 0 {
                 updateThumbViewLeading(0)
             } else {
                 updateThumbViewLeading(translatedPoint)
             }
-            currentProgress = 1 - (((xMaxLeading) - translatedPoint) / (xMaxLeading))
+            currentProgress = 1 - (((maxLeading) - translatedPoint) / (maxLeading))
         case .ended:
-            if translatedPoint >= xMaxLeading {
+            if translatedPoint >= completeTolerance * maxLeading {
                 currentProgress = 1
-                updateThumbViewLeading(xMaxLeading)
-                isComplete = true
-                completionAction?()
+                updateThumbViewLeading(maxLeading, animated: true, completion: { [weak self] _ in
+                    self?.isComplete = true
+                    self?.completionAction?()
+                })
             } else if translatedPoint <= 0 {
                 currentProgress = 0
                 updateThumbViewLeading(0)
             } else {
-                resetThumbViewPosition()
+                resetThumbViewPosition(animated: true)
                 return
             }
         default:
@@ -103,21 +117,23 @@ class TrackView: UIView {
     private func setupConstraints() {
         thumbViewContainer.translatesAutoresizingMaskIntoConstraints = false
         
-        leadingThumbViewConstraint = thumbView.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+        leadingThumbViewConstraint = thumbViewContainer.leadingAnchor.constraint(equalTo: self.leadingAnchor)
         leadingThumbViewConstraint?.isActive = true
         thumbViewContainer.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         thumbViewContainer.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        widthThumbViewConstraint = thumbView.widthAnchor.constraint(equalToConstant: thumbSize.width)
+        widthThumbViewConstraint = thumbViewContainer.widthAnchor.constraint(equalToConstant: thumbSize.width)
         widthThumbViewConstraint?.isActive = true
     }
     
-    private func updateThumbViewLeading(_ x: CGFloat) {
-        leadingThumbViewConstraint?.constant = x
-        layoutIfNeeded()
+    private func updateThumbViewLeading(_ x: CGFloat, animated: Bool = false, completion: ((Bool) -> Void)? = nil) {
+        UIView.animate(withDuration: animated ? 0.3 : 0.0, animations: {
+            self.leadingThumbViewConstraint?.constant = x
+            self.layoutIfNeeded()
+        }, completion: completion)
     }
     
-    private func resetThumbViewPosition() {
-        UIView.animate(withDuration: 0.3, animations: { 
+    private func resetThumbViewPosition(animated: Bool) {
+        UIView.animate(withDuration: animated ? 0.3 : 0.0, animations: {
             self.leadingThumbViewConstraint?.constant = 0
             self.layoutIfNeeded()
         }) { _ in

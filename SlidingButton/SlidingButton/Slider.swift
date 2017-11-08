@@ -15,7 +15,7 @@ enum SliderState {
 }
 
 protocol SliderDatasource: class {
-    func view(for state: SliderState) -> IconView
+    func view(for state: SliderState) -> UIView?
 }
 
 class Slider: UIView {
@@ -24,10 +24,15 @@ class Slider: UIView {
     // General settings ////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////
     
-    weak var datasource: SliderDatasource?
+    weak var datasource: SliderDatasource? {
+        didSet {
+            thumbViewContainer.datasource = datasource
+            thumbViewContainer.switchState(.default)
+        }
+    }
     
     var state: SliderState! {
-        return thumbView.state
+        return thumbViewContainer.state
     }
     
     var color: UIColor = UIColor(red: 0, green: 126/255, blue: 163/255, alpha: 1) {
@@ -56,6 +61,25 @@ class Slider: UIView {
         }
     }
     
+    var thumbViewCornerRadius: CGFloat = 2.0 {
+        didSet {
+            layer.cornerRadius = thumbViewCornerRadius
+        }
+    }
+    
+    var showTutorialAnimation: Bool = true
+    var tutorialJumpheight: CGFloat = 0.1
+    
+    var isComplete: Bool {
+        return trackView.isComplete
+    }
+    
+    var completeTolerance: CGFloat = 0.7 {
+        didSet {
+            trackView.completeTolerance = completeTolerance
+        }
+    }
+    
     ////////////////////////////////////////////////////////////////////////////////
     // Thubm view settings /////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////
@@ -70,7 +94,7 @@ class Slider: UIView {
     
     var thumbColor: UIColor = UIColor.white {
         didSet {
-            thumbView.backgroundColor = thumbColor
+            thumbViewContainer.backgroundColor = thumbColor
         }
     }
     
@@ -115,11 +139,14 @@ class Slider: UIView {
     }
     ////////////////////////////////////////////////////////////////////////////////
     
+    private var collisionAnimator = CollisionAnimator()
+    
+    private var tapGesture: UITapGestureRecognizer!
+    
     private var trackViewHeightConstraint: NSLayoutConstraint?
     private var trackViewTrailingConstraint: NSLayoutConstraint?
     private var trackViewLeadingConstraint: NSLayoutConstraint?
     
-    private let thumbView = ThumbView()
     private let textView = TextView()
     private let thumbViewContainer = ThumbViewContainer()
     private let trackView: TrackView!
@@ -128,27 +155,37 @@ class Slider: UIView {
         trackView = TrackView(with: thumbViewContainer, thumbSize: thumbSize)
         
         super.init(frame: frame)
-        setup()
+        configure()
     }
     
     required init?(coder: NSCoder) {
-        trackView = TrackView(with: thumbView, thumbSize: thumbSize)
+        trackView = TrackView(with: thumbViewContainer, thumbSize: thumbSize)
         
         super.init(coder: coder)
-        setup()
+        configure()
     }
     
     func switchState(_ state: SliderState, animated: Bool = true) {
-        thumbView.switchState(state, animated: true)
+        thumbViewContainer.switchState(state, animated: animated)
     }
     
-    private func setup() {
+    func reset(animated: Bool = true) {
+        thumbViewContainer.switchState(.default, animated: animated)
+        trackView.reset(animated: animated)
+    }
+    
+    private func configure() {
         
         trackView.onChangeProgress = { [weak self] progress in
             self?.textView.alpha = pow(1 - progress, 3)
         }
         
-        thumbView.backgroundColor = thumbColor
+        thumbViewContainer.cornerRadius = thumbViewCornerRadius
+        thumbViewContainer.clipsToBounds = true
+        thumbViewContainer.datasource = datasource
+        thumbViewContainer.backgroundColor = thumbColor
+        thumbViewContainer.switchState(.default)
+        
         backgroundColor = color
         
         textView.titleFont = titleFont
@@ -159,7 +196,10 @@ class Slider: UIView {
         addSubview(textView)
         
         trackView.backgroundColor = UIColor.clear
+        trackView.completeTolerance = completeTolerance
         addSubview(trackView)
+        
+        setupGestureRecognizer()
         
         setupConstraints()
     }
@@ -180,5 +220,26 @@ class Slider: UIView {
         textView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: thumbSize.width + CGFloat(minimumThumbPadding)).isActive = true
         textView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         textView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+    }
+    
+    private func setupGestureRecognizer() {
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
+        self.addGestureRecognizer(tapGesture)
+    }
+    
+    func handleTapGesture(_ recognizer: UIPanGestureRecognizer) {
+        guard showTutorialAnimation, !isComplete, !collisionAnimator.isRunning else {
+            return
+        }
+        
+        trackView.setProgress(tutorialJumpheight, animated: true) { [weak self] _ in
+            guard let trackView = self?.trackView, let thumbViewContainer = self?.thumbViewContainer else {
+                return
+            }
+
+            self?.collisionAnimator.symulateGravity(scene: trackView, target: thumbViewContainer, completion: { _ in
+                self?.trackView.setProgress(0.001, animated: false)
+            })
+        }
     }
 }
