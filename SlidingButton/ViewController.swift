@@ -30,7 +30,7 @@ class ViewController: UIViewController {
 
 extension ViewController: SliderDatasource {
     func view(for state: SliderState) -> UIView? {
-        
+
         switch state {
         case .default:
             let arrow = ImageWrapperView.view(with: "arrow")
@@ -39,10 +39,11 @@ extension ViewController: SliderDatasource {
         case .loading:
             let view = UIActivityIndicatorView(activityIndicatorStyle: .white)
             view.startAnimating()
-            view.color = .red
+            view.color = UIColor(red: 0, green: 126/255, blue: 163/255, alpha: 1)
             return view
         default:
             return nil
         }
     }
 }
+

@@ -14,6 +14,8 @@ class ThumbViewContainer: UIView {
             layer.cornerRadius = cornerRadius
         }
     }
+    var switchStateAnimationDuration: Double!
+    var switchStateAnimationOptions: UIViewAnimationOptions!
     
     weak var datasource: SliderDatasource?
     private(set) var state: SliderState = .default
@@ -27,7 +29,7 @@ class ThumbViewContainer: UIView {
         }
         
         if let viewToShow = datasource?.view(for: state) {
-            UIView.transition(with: self, duration: 0.3, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
+            UIView.transition(with: self, duration: switchStateAnimationDuration, options: switchStateAnimationOptions, animations: {
                 self.embed(viewToShow)
                 self.lastAddedView = viewToShow
             }, completion: { _ in

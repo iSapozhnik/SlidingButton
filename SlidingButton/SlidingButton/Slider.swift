@@ -61,12 +61,6 @@ class Slider: UIView {
         }
     }
     
-    var thumbViewCornerRadius: CGFloat = 2.0 {
-        didSet {
-            thumbViewContainer.cornerRadius = thumbViewCornerRadius
-        }
-    }
-    
     var showTutorialAnimation: Bool = true
     var tutorialJumpheight: CGFloat = 0.1
     
@@ -92,9 +86,27 @@ class Slider: UIView {
         }
     }
     
-    var thumbColor: UIColor = UIColor.white {
+    var thumbViewContainerColor: UIColor = UIColor.white {
         didSet {
-            thumbViewContainer.backgroundColor = thumbColor
+            thumbViewContainer.backgroundColor = thumbViewContainerColor
+        }
+    }
+    
+    var thumbViewContainerCornerRadius: CGFloat = 2.0 {
+        didSet {
+            thumbViewContainer.cornerRadius = thumbViewContainerCornerRadius
+        }
+    }
+    
+    var switchStateAnimationDuration: Double = 0.3 {
+        didSet {
+            thumbViewContainer.switchStateAnimationDuration = switchStateAnimationDuration
+        }
+    }
+    
+    var switchStateAnimationOptions: UIViewAnimationOptions = UIViewAnimationOptions.transitionCrossDissolve {
+        didSet {
+            thumbViewContainer.switchStateAnimationOptions = switchStateAnimationOptions
         }
     }
     
@@ -181,11 +193,13 @@ class Slider: UIView {
             self?.textView.alpha = pow(1 - progress, 3)
         }
         
-        thumbViewContainer.cornerRadius = thumbViewCornerRadius
+        thumbViewContainer.cornerRadius = thumbViewContainerCornerRadius
         thumbViewContainer.clipsToBounds = true
         thumbViewContainer.datasource = datasource
-        thumbViewContainer.backgroundColor = thumbColor
+        thumbViewContainer.backgroundColor = thumbViewContainerColor
         thumbViewContainer.switchState(.default)
+        thumbViewContainer.switchStateAnimationDuration = switchStateAnimationDuration
+        thumbViewContainer.switchStateAnimationOptions = switchStateAnimationOptions
         
         backgroundColor = color
         
