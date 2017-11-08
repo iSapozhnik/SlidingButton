@@ -63,7 +63,7 @@ class Slider: UIView {
     
     var thumbViewCornerRadius: CGFloat = 2.0 {
         didSet {
-            layer.cornerRadius = thumbViewCornerRadius
+            thumbViewContainer.cornerRadius = thumbViewCornerRadius
         }
     }
     
@@ -170,8 +170,9 @@ class Slider: UIView {
     }
     
     func reset(animated: Bool = true) {
-        thumbViewContainer.switchState(.default, animated: animated)
-        trackView.reset(animated: animated)
+        thumbViewContainer.switchState(.default, animated: animated, completion: { [weak self] in
+            self?.trackView.reset(animated: animated)
+        })
     }
     
     private func configure() {
